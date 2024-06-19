@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Manager</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+    <script>
+        function showLogin() {
+            document.getElementById('start').classList.add('hidden');
+            document.getElementById('login').classList.remove('hidden');
+        }
+
+        function showRegister() {
+            document.getElementById('start').classList.add('hidden');
+            document.getElementById('register').classList.remove('hidden');
+        }
+    </script>
+</head>
+<body>
+    <h1>Welcome to my Password Manager!</h1>
+
+    <div id="start">
+        <button onclick="showLogin()">Login</button>
+        <button onclick="showRegister()">Register</button>
+    </div>
+
+    <div id="login" class="hidden">
+        <h2>Login</h2>
+        <form action="/login" method="post">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username"><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password"><br>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+    <div id="register" class="hidden">
+        <h2>Register</h2>
+        <form action="/register" method="post">
+            <label for="new_username">Username:</label><br>
+            <input type="text" id="new_username" name="new_username"><br>
+            <label for="new_password">Password:</label><br>
+            <input type="password" id="new_password" name="new_password"><br>
+            <input type="submit" value="Register">
+        </form>
+    </div>
+</body>
+</html>
