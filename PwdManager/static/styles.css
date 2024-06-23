@@ -73,6 +73,68 @@ form {
     background-color: rgba(150, 150, 150, 0.9); /* Less transparent on click */
 }
 
+.dashboard__button {
+    display: inline-block;
+    background-color: rgba(200, 200, 200, 0.5); /* White background with 50% opacity */
+    backdrop-filter: blur(10px); /* Apply a blur effect to the background */
+    padding: 10px 20px; /* Add some padding */
+    margin: 0 10px; /* Add some margin */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition */
+    cursor: pointer;
+}
+
+.dashboard__button li:hover {
+    background-color: rgba(255, 255, 255, 0.7); /* Slightly less transparent on hover */
+}
+
+.dashboard__button li:active {
+    background-color: rgba(150, 150, 150, 0.9); /* Less transparent on click */
+}
+
+.dashboard__main--center {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 80vw;
+    margin: 2vw auto;
+}
+
+#password-list p {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5); /* White border with 50% opacity */
+    backdrop-filter: blur(10px); /* Apply a blur effect to the border */
+    padding-bottom: 10px; /* Add some padding to the bottom */
+    margin-bottom: 10px; /* Add some margin to the bottom */
+}
+
+.textfield_ph {
+    font-family: Anaheim, sans-serif;
+    font-size: calc(0.5em + 1vw);
+    background-color: rgba(255, 255, 255, 0.4); /* Less white background */
+}
+
+.nav__login, .nav__register, .generate_button, .savePwd_button {
+    display: inline-block;
+    background-color: rgba(200, 200, 200, 0.5); /* White background with 50% opacity */
+    backdrop-filter: blur(10px); /* Apply a blur effect to the background */
+    padding: 10px 20px; /* Add some padding */
+    margin: 0 10px; /* Add some margin */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition */
+    cursor: pointer;
+    font-family: Anaheim, sans-serif;
+    font-size: calc(0.5em + 1vw);
+}
+
+.nav__login, .nav__register, .generate_button, .savePwd_button:hover {
+    background-color: rgba(255, 255, 255, 0.7); /* Slightly less transparent on hover */
+}
+
+.nav__login, .nav__register, .generate_button, .savePwd_button:active {
+    background-color: rgba(150, 150, 150, 0.9); /* Less transparent on click */
+}
+
 form {
     display: flex;
     flex-direction: column;

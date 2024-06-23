@@ -41,31 +41,35 @@
     </h1>
 
     <div class="dashboard__main">
-        <div class="dashboard__main--left">
+        <div class="dashboard__main--center">
             <ul class="dashboard__buttons">
-                <li class="dashboard__button btn--one active">Generate Password</li>
-                <li class="dashboard__button btn--two">View All Password</li>
+                <li class="dashboard__button btn--zero" id="dashboard-button">Dashboard</li>                <li class="dashboard__button btn--one active">Generate Password</li>
+                <li class="dashboard__button btn--two">View All Passwords</li>
                 <li class="dashboard__button btn--three">Search Password</li>
             </ul>
-
         </div>
+
         <div class="dashboard__main--right">
             <div class="dashboard__generate--password">
                 <form action="/save_pass" class="save__pass" method="post">
-                    <input type="text" class="gen--website" placeholder="Website Name" required>
-                    <input type="text" class="gen--username" placeholder="Username / Email" required>
-                    <input type="text" class="gen--pass" placeholder="Password" required>
-                    <button type="button" class="nav__register" id="generate">Generate</button>
+                    <input type="text" class="gen--website textfield_ph" placeholder="Website Name" required>
+                    <input type="text" class="gen--username textfield_ph" placeholder="Username / Email" required>
+                    <input type="text" class="gen--pass textfield_ph" placeholder="Password" required>
+                    <button type="button" class="generate_button" id="generate">Generate</button>
                     <div class="password-options">
-                        <input type="number" class="password-length" placeholder="Length" min="6" max="20">
-                        <input type="checkbox" class="password-uppercase"> Uppercase
-                        <input type="checkbox" class="password-numbers"> Numbers
-                        <input type="checkbox" class="password-symbols"> Symbols
+                        <input type="number" class="password-length textfield_ph" placeholder="8" min="6" max="20">
+                        <input type="checkbox" class="password-uppercase textfield_ph"> Uppercase
+                        <input type="checkbox" class="password-numbers textfield_ph"> Numbers
+                        <input type="checkbox" class="password-symbols textfield_ph"> Symbols
                     </div>
-                    <button class="nav__login" type="submit">Save Password</button>
+                    <button class="savePwd_button" type="submit">Save Password</button>
                     <p class="success__message"></p>
                 </form>
             </div>
+        </div>
+
+        <div id="password-list" style="display: none;">
+            <!-- Passwords will be inserted here -->
         </div>
     </div>
 

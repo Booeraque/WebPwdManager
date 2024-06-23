@@ -87,3 +87,46 @@ form.addEventListener('submit', function(event) {
       console.error('Error:', error);
     });
 });
+
+// Get the "View All Passwords" button
+const viewAllPasswordsButton = document.querySelector('.btn--two');
+
+// Add click event listener to the button
+viewAllPasswordsButton.addEventListener('click', function() {
+    // Fetch the passwords from the server
+    fetch('/get_pass')
+        .then(response => response.json())
+        .then(data => {
+            // Get the password list div
+            const passwordListDiv = document.getElementById('password-list');
+
+            // Clear the div
+            passwordListDiv.innerHTML = '';
+
+            // Insert the passwords into the div
+            data.passwords.forEach(password => {
+                passwordListDiv.innerHTML += `
+                    <p>
+                        Website: ${password.website}<br>
+                        Username: ${password.username}<br>
+                        Password: ${password.password}<br>
+                    </p>
+                `;
+            });
+
+            // Hide the dashboard__main--right div
+            document.querySelector('.dashboard__main--right').style.display = 'none';
+
+            // Display the password list div
+            passwordListDiv.style.display = 'block';
+        });
+});
+
+// Get the "Dashboard" button
+const dashboardButton = document.querySelector('#dashboard-button');
+
+// Add click event listener to the button
+dashboardButton.addEventListener('click', function() {
+    // Navigate to the dashboard
+    window.location.href = '/dashboard';
+});

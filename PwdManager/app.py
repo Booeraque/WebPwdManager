@@ -18,8 +18,11 @@ def home():
 @app.route('/register', methods=['POST', 'GET'])
 def register():
     if request.method == 'POST':
-        username = request.form['register--username']
         password = request.form['register--password']
+        confirm_password = request.form['register--confirm-password']
+        if password != confirm_password:
+            return render_template("register.html", error_message="Passwords do not match")
+        username = request.form['register--username']
         name = request.form['register--name']
         email = request.form['register--email']
         user_id = register_user(username, password, name, email)

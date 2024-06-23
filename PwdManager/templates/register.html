@@ -38,10 +38,11 @@
 
     <form action="/register" class="registration__form" method="post">
         <p class="register_error"> {{error_message if error_message else '' }} </p>
-        <input type=" text" name="register--name" placeholder="Name" required />
-        <input type="email" name="register--email" placeholder="Email" required />
-        <input type="text" name="register--username" placeholder="Username" required />
-        <input type="password" name="register--password" placeholder="Password" required />
+        <input type="text" class="textfield_ph" name="register--name" placeholder="Name" required />
+        <input type="email" class="textfield_ph" name="register--email" placeholder="Email" required />
+        <input type="text" class="textfield_ph" name="register--username" placeholder="Username" required />
+        <input type="password" class="textfield_ph" name="register--password" placeholder="Password" required />
+        <input type="password" class="textfield_ph" name="register--confirm-password" placeholder="Confirm Password" required />
         <button type="submit" class="nav__register">Register</button>
         <p>Already have an account? <a href="{{url_for('login')}}">Log In</a></p>
     </form>
