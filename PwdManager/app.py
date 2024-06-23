@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request, session, redirect
 
-from PwdManager.SourceCode.mongodb import (register_user, add_password,
-                                           get_passwords, update_password, delete_password,
-                                           check_user)
+from SourceCode.mongodb import (register_user, add_password,
+                                get_passwords, update_password, delete_password,
+                                check_user)
 
-from PwdManager.SourceCode.PasswordGenerator import PasswordGenerator
+from SourceCode.PasswordGenerator import PasswordGenerator
 
 app = Flask(__name__)
 app.secret_key = 'your secret key'  # replace with your secret key
@@ -104,4 +104,4 @@ def delete_password_route():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)

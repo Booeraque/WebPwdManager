@@ -1,10 +1,24 @@
-FROM python:3.8-slim-buster
+# Use the official Python image as base
+FROM python:3.10
 
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# Set the working directory in the container
 WORKDIR /app
 
-COPY requirements.txt requirements.txt
-RUN pip3 install -r requirements.txt
+# Copy the requirements file into the container at /app
+COPY requirements.txt /app/
 
-COPY . .
+# Install any dependencies specified in requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
-CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
+# Copy the entire project directory into the container at /app
+COPY . /app/
+
+# Expose port 5000 to allow communication to/from server
+EXPOSE 5000
+
+# Command to run the Flask application
+CMD ["python", "app.py"]
