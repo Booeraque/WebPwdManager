@@ -1,7 +1,58 @@
 body {
-    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 5vw;
+    font-size: calc(1vw + 1vh + .5vmin);
 }
 
 form {
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80vw;
+    margin: 2vw auto;
+}
+
+input, button {
+    margin: 1vw 0;
+    padding: 1vw;
+    font-size: inherit;
+}
+
+.login--body, .dashboard, .home--body, .registration {
+    background: url('bg.gif') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.dashboard__buttons {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+}
+
+.dashboard__button {
+    background-color: #4CAF50; /* Green background */
+    border: none; /* Remove border */
+    color: white; /* White text */
+    padding: 15px 32px; /* Some padding */
+    text-align: center; /* Centered text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer; /* Mouse pointer on hover */
+    transition: background-color 0.3s; /* Animation */
+}
+
+.dashboard__button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.dashboard__button.selected {
+    background-color: #008CBA; /* Blue background when selected */
 }

@@ -1,52 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Password Manager</title>
-    <style>
-        .hidden {
-            display: none;
-        }
-    </style>
-    <script>
-        function showLogin() {
-            document.getElementById('start').classList.add('hidden');
-            document.getElementById('login').classList.remove('hidden');
-        }
-
-        function showRegister() {
-            document.getElementById('start').classList.add('hidden');
-            document.getElementById('register').classList.remove('hidden');
-        }
-    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/styles.css">
+    <title>EVault Password Manager</title>
 </head>
-<body>
-    <h1>Welcome to my Password Manager!</h1>
 
-    <div id="start">
-        <button onclick="showLogin()">Login</button>
-        <button onclick="showRegister()">Register</button>
-    </div>
-
-    <div id="login" class="hidden">
-        <h2>Login</h2>
-        <form action="/login" method="post">
-            <label for="username">Username:</label><br>
-            <input type="text" id="username" name="username"><br>
-            <label for="password">Password:</label><br>
-            <input type="password" id="password" name="password"><br>
-            <input type="submit" value="Login">
-        </form>
-    </div>
-
-    <div id="register" class="hidden">
-        <h2>Register</h2>
-        <form action="/register" method="post">
-            <label for="new_username">Username:</label><br>
-            <input type="text" id="new_username" name="new_username"><br>
-            <label for="new_password">Password:</label><br>
-            <input type="password" id="new_password" name="new_password"><br>
-            <input type="submit" value="Register">
-        </form>
-    </div>
+<body class="home--body">
+    <nav class="nav">
+        <figure class="nav__logo">
+            <a href="{{url_for('home')}}">
+                <img src="static/PMLogo.png" alt="PwdManager Logo" />
+            </a>
+        </figure>
+        <div class="nav__buttons">
+            <a href="{{url_for('login')}}" class="nav__login">log in</a>
+            <a href="{{url_for('register')}}" class="nav__register">register</a>
+        </div>
+    </nav>
+    <main class="main">
+        <figure class="main__image">
+            <img src="static/login_gif.gif" alt="login.gif">
+        </figure>
+        <div class="main__wrapper">
+            <p class="main__paragraph">
+                Have trouble remembering your passwords?
+                It's hard for you to make a strong password?
+                Let this Password Manager help you!
+            </p>
+            <div class="main__button">
+                <a href="{{url_for('register')}}" class="nav__register">register now</a>
+            </div>
+        </div>
+    </main>
 </body>
+
 </html>

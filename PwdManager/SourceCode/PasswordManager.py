@@ -1,4 +1,5 @@
-from SourceCode.mongodb import register_user, store_password, get_passwords, update_password, delete_password
+from PwdManager.SourceCode.PasswordGenerator import PasswordGenerator
+from PwdManager.SourceCode.mongodb import register_user, add_password, get_passwords, update_password, delete_password
 from werkzeug.security import check_password_hash
 
 
@@ -16,7 +17,7 @@ class PasswordManager:
         return False
 
     def add_password(self, user, password_data):
-        return store_password(user, password_data)
+        return add_password(user, password_data)
 
     def get_passwords(self, user):
         return get_passwords(user)
