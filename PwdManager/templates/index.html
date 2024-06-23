@@ -1,41 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<comment> This is the HTML template for the dashboard and other pages to be implemented later. </comment>
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static/styles.css">
-    <title>EVault Password Manager</title>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <!-- bootstrap css -->
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+          rel="stylesheet">
+
+    <script>const session_username = "{{username}}"</script>
+    <title>Password Manager</title>
+
+    <style>
+        body {
+            font-family: "Anaheim", sans-serif;
+        }
+        .navbar-brand img {
+            height: 50px;
+            width: auto;
+        }
+    </style>
+
 </head>
 
-<body class="home--body">
-    <nav class="nav">
-        <figure class="nav__logo">
-            <a href="{{url_for('home')}}">
-                <img src="static/PMLogo.png" alt="PwdManager Logo" />
-            </a>
-        </figure>
-        <div class="nav__buttons">
-            <a href="{{url_for('login')}}" class="nav__login">log in</a>
-            <a href="{{url_for('register')}}" class="nav__register">register</a>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="{{url_for('home')}}"><img
+                alt="PM logo" src="/static/PMLogo.jpg"></a>
+        <button aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation" class="navbar-toggler"
+                data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse"
+                type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a aria-current="page" class="nav-link active"
+                       href="#">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Generate Password</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">View All Password</a>
+                </li>
+            </ul>
+            <form class="d-flex" role="search">
+                <input aria-label="Search" class="form-control me-2"
+                       placeholder="Search Password" type="search">
+                <button class="btn btn-outline-success"
+                        type="submit">Search</button>
+            </form>
+            <form action="/login" class="d-flex log__out ms-2">
+                <button class="btn
+btn-outline-secondary" type="submit">Log Out</button>
+            </form>
         </div>
-    </nav>
-    <main class="main">
-        <figure class="main__image">
-            <img src="static/login_gif.gif" alt="login.gif">
-        </figure>
-        <div class="main__wrapper">
+    </div>
+</nav>
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8 px-0">
+            <h1>Welcome, <span
+                    class="dashboard__user--name">{{user}}</span></h1>
             <p class="main__paragraph">
                 Have trouble remembering your passwords?
                 It's hard for you to make a strong password?
                 Let this Password Manager help you!
             </p>
-            <div class="main__button">
-                <a href="{{url_for('register')}}" class="nav__register">register now</a>
-            </div>
+            <form action="" class="card card-body save__pass">
+                <div class="mb-3">
+                    <label class="form-label"
+                           for="WebsiteName">Website Name</label>
+                    <input aria-describedby="WebsiteName" class="form-control
+                    gen--website" id="WebsiteName" required
+                           type="text">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label"
+                           for="usernameEmail">Username / Email</label>
+                    <input class="form-control
+                    gen--username" id="usernameEmail" required type="text">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label"
+                           for="userPassword">Password</label>
+                    <input class="form-control
+                    gen--pass" id="userPassword" required type="password">
+                </div>
+                <div class="row mb-3 password-options">
+                    <div class="col-lg">
+                        <input class="password-length form-control"
+                               max="20" min="6" placeholder="Length"
+                               type="number">
+                    </div>
+                    <div class="col-lg form-check my-auto">
+                        <input class="password-uppercase form-check-input"
+                               id="passwordUppercase" type="checkbox">
+                        <label class="form-check-label"
+                               for="passwordUppercase">Uppercase</label>
+                    </div>
+                    <div class="col-lg form-check my-auto">
+                        <input class="password-numbers form-check-input"
+                               id="passwordNumbers" type="checkbox">
+                        <label class="form-check-label"
+                               for="passwordNumbers">Numbers</label>
+                    </div>
+                    <div class="col-lg form-check my-auto">
+                        <input class="password-symbols form-check-input"
+                               id="passwordSymbols" type="checkbox">
+                        <label class="form-check-label"
+                               for="passwordSymbols">Symbols</label>
+                    </div>
+                    <div class="col-lg">
+                        <button class="btn btn-success
+                        w-100">Generate</button>
+                    </div>
+                </div>
+                <button class="btn btn-primary" type="submit">Save
+                    Password</button>
+                <p class="success__message"></p>
+            </form>
         </div>
-    </main>
+        <div class="col-lg-2"></div>
+
+
+
+    </div>
+    <div class="row my-5">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8 px-0">
+            <h2>List of passwords</h2>
+            <ul class="list-group">
+                <li class="list-group-item">An item</li>
+                <li class="list-group-item">A second item</li>
+                <li class="list-group-item">A third item</li>
+                <li class="list-group-item">A fourth item</li>
+                <li class="list-group-item">And a fifth one</li>
+            </ul>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+
+</div>
+
+<script crossorigin="anonymous"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>

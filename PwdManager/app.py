@@ -4,13 +4,15 @@ from PwdManager.SourceCode.mongodb import (register_user, add_password,
                                            get_passwords, update_password, delete_password,
                                            check_user)
 
+from PwdManager.SourceCode.PasswordGenerator import PasswordGenerator
+
 app = Flask(__name__)
 app.secret_key = 'your secret key'  # replace with your secret key
 
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('login.html')
 
 
 @app.route('/register', methods=['POST', 'GET'])
@@ -46,6 +48,21 @@ def dashboard():
     if 'username' in session:
         return render_template('dashboard.html', username=session['username'])
     return render_template('login.html')
+
+
+@app.route('/generate_password', methods=['POST'])
+def generate_password_route():
+    password_options = request.get_json()
+    length = password_options.get('length', '8')  # Default length is 8 if not provided
+    length = int(length) if length.isdigit() else 8
+    use_uppercase = password_options.get('useUppercase', False)
+    use_numbers = password_options.get('useNumbers', False)
+    use_symbols = password_options.get('useSymbols', False)
+
+    password_generator = PasswordGenerator(length, use_uppercase, use_numbers, use_symbols)
+    password = password_generator.generate_password()
+
+    return {'password': password}, 200
 
 
 @app.route('/save_pass', methods=['POST'])

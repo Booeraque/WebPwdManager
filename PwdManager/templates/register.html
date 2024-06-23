@@ -5,23 +5,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Anaheim:wght@400..800&display=swap"
+          rel="stylesheet">
     <link rel="stylesheet" href="/static/styles.css">
 
-    <title>EVault Password Manager</title>
+    <title>Password Manager</title>
 </head>
 
 <body class="registration">
-    <figure class="registration__logo">
-        <a href="{{url_for('home')}}">
-            <img src="static/PMLogo.png" alt="PwdManager">
-        </a>
-    </figure>
+
+     <nav class="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{url_for('home')}}">
+                <img src="static/PMLogo.jpg" alt="PwdManager Logo">
+            </a>
+            <div class="collapse navbar-collapse d-flex" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('login')}}">Log&nbsp;In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('register')}}">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
     <h1 class="registration__heading">Account Registration</h1>
-
-    <figure class="registration__image">
-        <img src="images/register.jpg" alt="/">
-    </figure>
 
     <form action="/register" class="registration__form" method="post">
         <p class="register_error"> {{error_message if error_message else '' }} </p>

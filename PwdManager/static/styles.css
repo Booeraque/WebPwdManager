@@ -3,8 +3,74 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-family: Anaheim, sans-serif;
     margin: 5vw;
-    font-size: calc(1vw + 1vh + .5vmin);
+    font-size: calc(0.5em + 1vw);
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 10vh; /* Set the height to 10% of the viewport height */
+    background-color: rgba(255, 255, 255, 0.5); /* Set the background color to white with 50% opacity */
+    backdrop-filter: blur(1px); /* Apply a blur effect to the background */
+    z-index: 1000; /* Ensure the navbar stays on top of other elements */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80vw;
+    margin: 2vw auto;
+}
+
+.navbar .container-fluid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar .navbar-nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px; /* Adjust as needed */
+}
+
+.navbar .nav-item {
+    margin-left: 15px; /* Adjust as needed */
+    margin-right: 15px;
+}
+
+.navbar .navbar-brand img {
+    width: auto; /* Maintain aspect ratio */
+    height: 10vh; /* Maintain aspect ratio */
+}
+
+.navbar a {
+        text-decoration: none;
+}
+
+.navbar .navbar-nav li {
+    display: inline-block;
+    background-color: rgba(200, 200, 200, 0.5); /* White background with 50% opacity */
+    backdrop-filter: blur(10px); /* Apply a blur effect to the background */
+    padding: 10px 20px; /* Add some padding */
+    margin: 0 10px; /* Add some margin */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition */
+    cursor: pointer;
+}
+
+.navbar .navbar-nav li:hover {
+    background-color: rgba(255, 255, 255, 0.7); /* Slightly less transparent on hover */
+}
+
+.navbar .navbar-nav li:active {
+    background-color: rgba(150, 150, 150, 0.9); /* Less transparent on click */
 }
 
 form {
@@ -28,31 +94,4 @@ input, button {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-}
-
-.dashboard__buttons {
-    list-style-type: none; /* Remove bullet points */
-    padding: 0;
-}
-
-.dashboard__button {
-    background-color: #4CAF50; /* Green background */
-    border: none; /* Remove border */
-    color: white; /* White text */
-    padding: 15px 32px; /* Some padding */
-    text-align: center; /* Centered text */
-    text-decoration: none; /* Remove underline */
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer; /* Mouse pointer on hover */
-    transition: background-color 0.3s; /* Animation */
-}
-
-.dashboard__button:hover {
-    background-color: #45a049; /* Darker green on hover */
-}
-
-.dashboard__button.selected {
-    background-color: #008CBA; /* Blue background when selected */
 }
